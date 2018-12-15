@@ -1,0 +1,56 @@
+
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                const decimal TAX_RATE_Decimal = 0.07m;
+                const decimal TIP_RATE_DECIMAL = 0.15m;
+
+
+
+                decimal foodCharge; // To hold food charge.
+                decimal salesTax;   // to hold sales tax.
+                decimal tip;        // to hold tip
+                decimal total;      // To hold Total
+                
+                // Get food charge and assign to foodcharge variable.
+                foodCharge = decimal.Parse(foodInputTextBox.Text);
+                // display Food Charge on Output
+                foodResultsLabel.Text = foodCharge.ToString("c");
+                // Calculate sales tax
+                salesTax = foodCharge * TAX_RATE_Decimal;
+                // display sales tax
+                taxResultsLabel.Text = salesTax.ToString("c");
+                // Calculate tip
+                tip = foodCharge * TIP_RATE_DECIMAL;
+                // display tip amount
+                tipResultsLabel.Text = tip.ToString("c");
+                // calculate total
+                total = foodCharge + salesTax + tip;
+                // display total
+                totalResultsLabel.Text = total.ToString("c");
+            }
+            catch
+            {
+                //Display error message
+                MessageBox.Show("Invalid data was entered.");
+            }
+
+        }
